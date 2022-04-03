@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: credentials
+Version: 1.0
+Summary: "Obtain credentials for system/user stored in user's HOME directory file"
+Home-page: https://github.com/drisen/credentials
+Author: "Dennis Risen"
+Author-email: "dar5@case.edu"
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/drisen/credentials/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Licence :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# credentials
+Access and manage the credentials for system/user from a repository
+in the user's HOME/.credentials.json file.
+
+**credentials**`(system: str, username: str=None, interactive: bool = False) -> tuple`  
+
+returns the credentials for system/username.
+When called with interactive=True, prompts to allow the user to create the repository, add or update credentials
+in the repository.
+
+

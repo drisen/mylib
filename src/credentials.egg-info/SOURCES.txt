@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/credentials/__init__.py
+src/credentials/credentials.py
+src/credentials.egg-info/PKG-INFO
+src/credentials.egg-info/SOURCES.txt
+src/credentials.egg-info/dependency_links.txt
+src/credentials.egg-info/top_level.txt

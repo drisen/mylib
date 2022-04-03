@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: credentials
-Version: 1.0
+Version: 1.0.1
 Summary: "Obtain credentials for system/user stored in user's HOME directory file"
 Home-page: https://github.com/drisen/credentials
 Author: "Dennis Risen"

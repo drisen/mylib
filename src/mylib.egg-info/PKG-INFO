@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mylib
-Version: 1.1.1
+Version: 1.1.2
 Summary: "Utilities including credentials, error logging, and time conversion."
 Home-page: https://github.com/drisen/mylib
 Author: "Dennis Risen"

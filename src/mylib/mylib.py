@@ -2,11 +2,12 @@
 # mylib.py Copyright (C) 2019 Dennis Risen, Case Western Reserve University
 # refactored from mylib.py
 """
-
+Library of utilities including credentials manager, error logging, and time conversions in home_zone
 """
 
 import calendar
 from datetime import datetime
+import json
 import os
 import platform
 from pytz import timezone
@@ -102,6 +103,19 @@ if platform.system() == 'Linux': 		# Running on Linux platform?
     import subprocess
 
     def logErr(*s, start: str = '\n', end: str = '', **kwargs):
+        """log timestamp + join(s) via email (Linux) or print(**kwargs) (Windows)
+
+        settable attributes:
+
+        - logErr.logSubject is <email subject>; default is program name
+        - logErr.logToAddr is <email addresses>; default is <user>@<host>
+
+        :param s:       message strings to merge as in print()
+        :param start:   prefix str
+        :param end:     suffix str
+        :param kwargs:  ignored in linux; passed to print() in windows
+        :return:
+        """
         print(f"{start}{strfTime(time.time())} ERROR", *s, end=end, **kwargs)
         message = ' '.join(str(x) for x in s)  # join the parameters, like print
         try:
@@ -119,6 +133,20 @@ if platform.system() == 'Linux': 		# Running on Linux platform?
 else:									# No, just print
 
     def logErr(*s, start: str = '\n', end: str = '', **kwargs):
+        """log timestamp + join(s) via email (Linux) or print(**kwargs) (Windows)
+
+        settable attributes:
+
+        - logErr.logSubject is <email subject>; default is program name
+        - logErr.logToAddr is <email addresses>; default is <user>@<host>
+
+        :param s:       message strings to merge as in print()
+        :param start:   prefix str
+        :param end:     suffix str
+        :param kwargs:  ignored in linux; passed to print() in windows
+        :return:
+        """
+
         params = [r'/usr/bin/mailx', '-s', logErr.logSubject] + logErr.logToAddr
         print(f"unix would call subprocess({params}, check=True, input=message=<see below>)")
         print(f"{start}{strfTime(time.time())} ERROR", *s, end=end, **kwargs)

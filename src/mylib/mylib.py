@@ -14,7 +14,7 @@ from pytz import timezone
 import re
 import sys
 import time
-from typing import Union
+from typing import Iterable, Union
 home_zone = timezone('US/Eastern')		# All str date input/output in this timezone
 
 
@@ -34,6 +34,33 @@ def anyToSecs(t, offset: float = 0.0) -> float:
         return strpSecs(t)
     else:
         raise TypeError
+
+
+def buckets(lst: list, lows: Iterable) -> list:
+    """Summarize the lst of values into a histogram with breakpoints in lows.
+    Side-effect: sorts lst into ascending order
+
+    :param lst: 	[val, ...] to enter into histogram
+    :param lows: 	[breakpoint, ...] in ascending order
+    :return: 		[[breakpoint, count], ...]
+    """
+    lst.sort()
+    result = []
+    low = lst[0] if len(lst) > 0 else 0  # additional low breakpoint, if necessary
+    i = 0  # index into bucket breakpoints
+    cnt = 0
+    for nxt in lows:                    # for each breakpoint
+        while i < len(lst):
+            if lst[i] < nxt:            # value < breakpoint?
+                cnt += 1                # add to count
+                i += 1
+            else:
+                break                   # done with this bucket
+        result.append((low, cnt))
+        low = nxt                       # advance to next bucket breakpoint
+        cnt = 0
+    result.append((low, len(lst) - 1))  # add count of vals >= top breakpoint
+    return result
 
 
 def credentials(system: str, username: str = None,

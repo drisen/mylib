@@ -5,6 +5,9 @@ Library of utilities for managing credentials, logging errors, and time conversi
     returns the credentials for system/username.
     When called with interactive=True, prompts to allow the user to create the repository, add or update credentials
     in the repository.
+- **buckets**`(lst: list, lows: Iterable) -> list:`
+    Summarize the lst of values into a histogram with breakpoints in lows.
+    Side-effect: sorts lst into ascending order
 - **Logging**
     - **logErr**`(*s, start:str='\n', end:str='', **kwargs)`  
       log join(timestamp and s) via email (unix) or print(**kwargs) (Windows)  

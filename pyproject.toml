@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mylib"
-version = "1.1.4"
+version = "1.1.5"
 authors = [ { name="Dennis Risen", email="dar5@case.edu" }, ]
 description = "Utilities including credentials, error logging, and time conversion."
 readme = "README.md"

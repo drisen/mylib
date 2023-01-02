@@ -16,6 +16,7 @@ import sys
 import time
 from typing import Iterable, Union
 home_zone = timezone('US/Eastern')		# All str date input/output in this timezone
+ts_format = '%y-%m-%dT%H:%M:%S'         # timestamp format used by logErr
 
 
 def anyToSecs(t, offset: float = 0.0) -> float:
@@ -143,7 +144,7 @@ if platform.system() == 'Linux': 		# Running on Linux platform?
         :param kwargs:  ignored in linux; passed to print() in windows
         :return:
         """
-        print(f"{start}{strfTime(time.time())} ERROR", *s, end=end, **kwargs)
+        print(f"{start}{strfTime(time.time(), ts_format)} ERROR", *s, end=end, **kwargs)
         message = ' '.join(str(x) for x in s)  # join the parameters, like print
         try:
             params = [r'/usr/bin/mailx', '-s', logErr.logSubject]+logErr.logToAddr
@@ -176,7 +177,7 @@ else:									# No, just print
 
         params = [r'/usr/bin/mailx', '-s', logErr.logSubject] + logErr.logToAddr
         print(f"unix would call subprocess({params}, check=True, input=message=<see below>)")
-        print(f"{start}{strfTime(time.time())} ERROR", *s, end=end, **kwargs)
+        print(f"{start}{strfTime(time.time(), ts_format)} ERROR", *s, end=end, **kwargs)
     # Default Subject of logError() email messages
     logErr.logSubject = os.path.basename(sys.argv[1]
         if re.search('python', sys.argv[0]) else sys.argv[0])

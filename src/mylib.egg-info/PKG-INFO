@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: mylib
-Version: 1.1.4
-Summary: Utilities including credentials, error logging, and time conversion.
+Version: 1.1.6
+Summary: Utilities including buckets, credentials, error logging, and time conversion.
 Author-email: Dennis Risen <dar5@case.edu>
 License:                     GNU GENERAL PUBLIC LICENSE
                                Version 3, 29 June 2007

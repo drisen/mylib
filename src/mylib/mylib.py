@@ -64,7 +64,7 @@ def buckets(lst: list, lows: Iterable) -> list:
     return result
 
 
-def credentials(system: str, username: str = None,
+def credentials(system: str, username: Union[str, None] = None,
                 interactive: bool = False) -> (str, Union[str, None]):
     """Lookup your (username, password) for username on system.
     Username defaults to the first username defined for system.

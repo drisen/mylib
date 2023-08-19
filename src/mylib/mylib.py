@@ -1,6 +1,6 @@
 #
 # mylib.py Copyright (C) 2019 Dennis Risen, Case Western Reserve University
-# refactored from mylib.py
+# refactored from mylib.py and credentials.py
 """
 Library of utilities including credentials manager, error logging, and time conversions in home_zone
 """

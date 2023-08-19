@@ -16,7 +16,7 @@ classifiers = [
     "Operating System :: Microsoft :: Windows",
     "Operating System :: Unix",
               ]
-dependencies = [ "pytz>=2023.7", ]
+dependencies = [ "pytz>=2023.3", ]
 
 [project.urls]
 "Homepage" = "https://github.com/drisen/mylib"

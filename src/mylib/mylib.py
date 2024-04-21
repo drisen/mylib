@@ -4,6 +4,9 @@
 """
 Library of utilities including credentials manager, error logging, and time conversions in home_zone
 """
+""" To Do
+allow credentials to shim to a widely used credentials manager
+"""
 
 import calendar
 from datetime import datetime
